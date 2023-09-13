@@ -83,3 +83,7 @@ int main() {
     cout << exc.what();
   }
 }
+
+/*
+  Performing a BFS from one node takes O(|E|) time, and running BFS from all nodes takes O(|V| + |E|). Hence, the shortest path computation from one starting node has complexity O(|E|).
+*/
