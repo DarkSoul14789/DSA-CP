@@ -6,7 +6,7 @@ typedef vector<vector<int>> AdjacencyList;
 
 enum class NodeState{UNVISITED, IN_PROGRESS, FINISHED};
 
-class GraphIsCyclicException: runtime_error{
+class GraphIsCyclicException: public runtime_error{
   public:
     GraphIsCyclicException() : runtime_error("The graph contains a cycle.") {}
 };
@@ -58,11 +58,20 @@ int main() {
   }
 
   TopologicalSort topologicalSort(adjacencyList);
-  vector<int> topSort = topologicalSort.computeTopologicalSort();
-  cout << "Topological sort:";
-  for (int u : topSort) {
-    cout << " " << u;
+  try
+  {
+    vector<int> topSort = topologicalSort.computeTopologicalSort();
+    cout << "Topological sort:";
+    for (int u : topSort) {
+      cout << " " << u;
+    }
   }
+  catch(GraphIsCyclicException exc)
+  {
+    cout << exc.what() << '\n';
+  }
+  
+  
 }
 
 /*
