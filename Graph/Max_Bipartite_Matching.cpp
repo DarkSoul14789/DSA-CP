@@ -158,3 +158,7 @@ int main(){
   int maxMatch = maximumMatching(canMatch);
   cout<<"Maximum matching: "<<maxMatch<<endl;
 }
+
+/*
+  Runtime complexity is O(|V||E|)
+*/
